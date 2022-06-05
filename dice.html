@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dice flex</title>
+  <style>
+    /* 用flex布局制作六个面的点数 */
+    body{
+      background-color: bisque;
+      width: 100vw;
+      height: 40vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    main{
+      width: 600px;
+      height: 100px;
+      display: flex;
+      /* 开启动画 */
+      animation: movement 10s linear 0.3s infinite;
+      transform-style: preserve-3d;
+    }
+    div{
+      position: absolute;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      height: 100px;
+      background-color: #fff;
+      flex-wrap:wrap;
+    }
+    div:nth-child(2){
+      flex-direction: column;
+      justify-content: space-around;
+    }
+    div:nth-child(3){
+      padding: 10px;
+      box-sizing:border-box;
+    }
+    div:nth-child(3) span:nth-child(1){
+      align-self: flex-start;
+    }
+    div:nth-child(3) span:nth-child(3){
+      align-self: flex-end;
+    }
+    span{
+      display:inline-block;
+      width: 25px;
+      height: 25px;
+      background-color: red;
+      border-radius:50%;
+    }
+    nav{
+      width: 100%;
+      height: 25px;
+      display:flex;
+      justify-content: space-around;
+    }
+
+    /* 组成盒子 */
+    #ff{
+      transform: rotateY(90deg) translateZ(50px)
+    }
+    #aa{
+      transform: rotateY(-90deg) translateZ(50px)
+    }
+    #bb{
+      transform: rotateY(0deg) translateZ(50px)
+    }
+    #cc{
+      transform: rotateY(180deg) translateZ(50px)
+    }
+    #dd{
+      transform: rotateX(90deg) translateZ(50px)
+    }
+    #ee{
+      transform: rotateX(-90deg) translateZ(50px)
+    }
+    /* 动画效果 */
+    @keyframes movement{
+      from{
+        transform: rotateY(0deg) rotateZ(0deg)
+      }
+      to{
+        transform: rotateY(300deg) rotateZ(300deg)
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div id='aa'>
+      <span></span>
+    </div>
+    <div id='bb'>
+      <span></span>
+      <span></span>
+    </div>
+    <div id='cc'>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div id='dd'>
+      <nav>
+        <span></span>
+        <span></span>
+      </nav>
+      <nav>
+        <span></span>
+        <span></span>
+      </nav>
+    </div>
+    <div id='ee'>
+      <nav>
+        <span></span>
+        <span></span>
+      </nav>
+      <span></span>
+      <nav>
+        <span></span>
+        <span></span>
+      </nav>
+    </div>
+    <div id='ff'>
+      <nav>
+        <span></span>
+        <span></span>
+      </nav>
+      <nav>
+        <span></span>
+        <span></span>
+      </nav>
+      <nav>
+        <span></span>
+        <span></span>
+      </nav>
+    </div>
+  </main>
+</body>
+</html>
